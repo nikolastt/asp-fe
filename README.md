@@ -28,11 +28,19 @@ Em dev, chamadas para `/api/*` são encaminhadas ao [asp-api](https://github.com
 
 ## Scripts
 
-| Script            | O que faz                          |
-| ----------------- | ---------------------------------- |
-| `npm run dev`     | servidor de desenvolvimento (Vite) |
-| `npm run build`   | type-check + build de produção     |
-| `npm run preview` | serve o build localmente           |
-| `npm run lint`    | oxlint                             |
-| `npm run format`  | prettier                           |
-| `npm test`        | vitest (jsdom + Testing Library)   |
+| Script              | O que faz                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------- |
+| `npm run dev`       | servidor de desenvolvimento (Vite)                                                              |
+| `npm run build`     | type-check + build de produção                                                                  |
+| `npm run check`     | tudo que precisa passar antes de abrir PR (formato, tipos, lint, imports, código morto, testes) |
+| `npm run lint`      | oxlint (com as regras de Tailwind, TanStack Query e Testing Library)                            |
+| `npm run depcruise` | regras de pastas e imports (docs/adr/0002)                                                      |
+| `npm run knip`      | arquivos, exports e dependências sem uso                                                        |
+| `npm run format`    | prettier (ordena as classes do Tailwind)                                                        |
+| `npm test`          | vitest (jsdom + Testing Library + MSW)                                                          |
+
+## Para agentes e pessoas
+
+- `AGENTS.md`: o que um agente precisa saber antes de mexer aqui.
+- `docs/practices.md`: como escrevemos componentes, estado, dados, formulários, estilos e testes.
+- `docs/adr/`: as decisões e o porquê delas.
