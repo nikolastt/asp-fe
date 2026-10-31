@@ -157,6 +157,29 @@ Reuse these before inventing; copy them from their frame.
 - **The pressed stamp** "Feita" for a goal met, the **ficha** for Radmila's note over a sheet, the
   **segmented well** for filters with counts (Admin · Pessoas), the **phase list** (Painel).
 
+## Mobile (390)
+
+The platform's phone frames are 390 wide, `$papel`, vertical, height fitting the content.
+
+- **Shell**: the sidebar becomes a 56px top bar in the menu's colour (`$musgo-escuro` participant,
+  `$tinta` admin): a 44px menu button, the logo asset at 120×40, the person's avatar. Content padding
+  [24,16,40,16], sections gap 32.
+- **Header**: the meta line, the title 28/600 and the primary shortened to one word ("Nova") at 44px;
+  the week stepper on its own row under it, the arrows as 44px raised buttons.
+- **Section heads** 20/600 with the summary on the title's line and the text under it.
+- **Week grid**: one row of day heads at the top of the sheet; each task row splits into the name
+  line (name 15/500, area, `chevron-right`) over the cell line (34px cells, gap 4) with the progress
+  (figure and segments, or the stamp) at its end. The legend wraps to two lines. The 34px cells
+  are the one exception to the 44px target: each cell's tap area is its 38px pitch by 44px tall.
+- **Board**: the lanes stack, Hoje first, full width; Feitas starts collapsed ("Mostrar"). Card
+  actions and checkboxes are 44px tall; a card's action button runs the card's width.
+- **Side panels become full screens**: a 56px top bar with "‹ Tarefas" (or "‹ Cancelar" for the
+  composer) and any secondary action on the right, the panel's content at padding [20,20,28,20], and
+  the one primary pinned in a bottom bar over a hairline, its helper line always above it. The
+  detail's week uses 36px boxes in 44px columns. The admin detail pins only "Editar tarefa"; Pausar
+  and Remover go to the ⋯ in the top bar. Fields 48px tall; two side-by-side fields stack; day
+  toggles share the row at 44px; a bare link sits in a 44px-tall target.
+
 ## Every data region has four states
 
 Full, loading (a skeleton in the shape of the rows, `$hm-papel-2` bars), empty (what belongs here, why

@@ -23,6 +23,7 @@
 | Admin · Tarefas (Hallmark)             | `mxHa2`  | x 8200, y 41200; below it "Criando para o Guilherme" (`oginP`, the side panel), "Depois de atribuir" (`hAgk0`), "Detalhe da tarefa" (`h1aWap`) and the states |
 | Admin menu item "Tarefas"              | `gve1y`  | first under Acompanhamento  |
 | Admin · Tarefas · Estados do compositor | `d6bCx5` | x 9840, y 41200            |
+| Mobile: Participante · Tarefas, Detalhe; Admin · Tarefas, Criando, Detalhe | `zksjt`, `k7rJ7`, `k1nQk`, `sQHgw`, `Q6mKe` | x 11480 to 13360, 470 apart, y 41200 |
 
 Ids drift as people edit; when one is missing, find the node by name with a visitor instead of
 recreating it. New platform screens go on the Hallmark row (y 41200), 1640 apart, to the right of the
