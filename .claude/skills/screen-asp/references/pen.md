@@ -20,6 +20,9 @@
 | Admin · Pessoas (Hallmark)             | `NQ4xB`  | x 4920, y 41200             |
 | Participante · Tarefas (Hallmark)      | `FyRRo`  | x 6560, y 41200; states below |
 | Menu item "Tarefas" (in the component) | `w6UtSU` | second item, after Início   |
+| Admin · Tarefas (Hallmark)             | `mxHa2`  | x 8200, y 41200; "Depois de atribuir" and states below |
+| Admin menu item "Tarefas"              | `gve1y`  | first under Acompanhamento  |
+| Admin · Tarefas · Estados do compositor | `d6bCx5` | x 9840, y 41200            |
 
 Ids drift as people edit; when one is missing, find the node by name with a visitor instead of
 recreating it. New platform screens go on the Hallmark row (y 41200), 1640 apart, to the right of the
@@ -42,15 +45,18 @@ last one; their state frames go under the screen, 200 below its bottom. Name the
 5. **Check**: `Get(screen,(n,c)=>c.problems&&Print(n.name,c.parentCtx?.node.name,c.problems))` prints
    nothing but nodes you disabled (`enabled: false` reports as "fully clipped"); a visitor finds no
    `fill`, `stroke` or `fontFamily` that is a literal outside the menu instance; the frame's `height`
-   matches "Conteúdo" (a copy keeps the source's fixed height).
+   is "Conteúdo"'s height, but never under the menu's own (900 participant, 932 admin), or the menu's
+   footer rides over its items. A copy keeps the source's fixed height, so set it every time.
 6. **Export** the screen and its states to PNG (`Export([...],"png",<scratchpad dir>)`) for the finish
    review.
 
 ## A new menu destination
 
-Add it to the component, not to one screen: `Insert` a `ref` to `gw7a3` into the component's "Itens"
-frame (`F3E5rT` → Navegação → Itens), `Move` it to its place, set `descendants` for the icon (lucide
-name) and label. Then, on every Hallmark-frame instance of the menu, add the same font override the
+Add it to the component, not to one screen: `Insert` a `ref` to `gw7a3` into the component's items
+frame (participant `F3E5rT` → Navegação → Itens; admin `j3d9NF`, where each section frame holds its
+"Seção" label first and then the items), `Move` it to its place (after the label in the admin menu),
+set `descendants` for the icon (lucide name) and label, and screenshot the menu to see where it
+landed. Then, on every Hallmark-frame instance of the menu, add the same font override the
 other items carry (`<newItemId>/WjmdY` and `<newItemId>/eQupm`: `{fontFamily:"$hm-font"}`), since the
 component's own font is the old `$font-display`. Say in the hand-back that every screen's menu changed.
 
@@ -58,6 +64,8 @@ component's own font is the old `$font-display`. Say in the hand-back that every
 
 - A frame with `placeholder: true` screenshots blank. Turn it off once the layout stands, and take the
   screenshot in a separate `execute`: one in the same call as a placeholder change can render stale.
+- `underline` is in the schema but does not stick on text; draw a link as a frame with a bottom
+  stroke (`sistema.md` § Controls).
 - Globals assigned in one `execute` are not reliably there in the next; carry ids as string literals
   from the previous call's output.
 

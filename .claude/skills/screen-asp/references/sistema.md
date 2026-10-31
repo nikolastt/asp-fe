@@ -92,6 +92,8 @@ All 40px tall (app range), radius 8 unless noted.
 | Tag / status        | radius 4, stroke `$tinta` 1, padding [1,6], 12/500                                                | `Badge variant=outline`  |
 | Checkbox            | 22×22 radius 6; done: fill `$terracota` + lucide `check` 14 `$hm-algodao`; open: `$hm-algodao`, stroke `$hm-linha-forte` 1.5 | `Checkbox`               |
 | Progress            | segments: rectangles height 4, radius 2, gap 3, done `$musgo`, open `$hm-linha`                   | `Progress`               |
+| Day toggles (multi) | separate 52×36 radius 8 chips, gap 6, `$hm-algodao`; on: stroke `$tinta` 1.5, lucide `check` 12 + label 13/600; off: stroke `$hm-linha-forte` 1, label `$tinta-suave`. The segmented well stays for one-of-many | `ToggleGroup type=multiple` |
+| Link                | text 13 to 14/500 on a frame with `strokeWidth {bottom:1}` in the text's ink (`$musgo` or `$tinta`), padding bottom 1 | `<a>` |
 | Table               | full width, heads 13/500 `$tinta-suave`, rows with a top hairline, no outer border                 | `Table`                  |
 
 Icons are lucide, 16 to 18, in the ink of their label.
@@ -117,6 +119,15 @@ Reuse these before inventing; copy them from their frame.
   `$hm-papel-2` and its head carries a 2px `$musgo` bar. A legend under the grid names the states.
 - **Inline disclosure**: a row opens in place (chevron at the row's end, `$tinta-suave`), showing
   Radmila's note and the row's actions; a modal is the last answer.
+- **Admin checklist** (Admin · Tarefas): her own items are plain reminders ("Lembrete seu") or
+  "Criar tarefa" items tied to one person (an outline tag plus the name). Opening a "Criar tarefa"
+  item shows the composer inline: Para (the person, fixed by the item), Tarefa, Área, Começa, Dias,
+  an optional recado, and a preview of the row as it lands in the person's week (the participant
+  grid's heads, cells and progress, in a well). The one primary is "Atribuir ao <nome>", and the
+  footer says that assigning marks her item done. Done, the item keeps a trace line under it ("Criada
+  às 9:12 para…") with "Ver na rotina de…" and, right after, "Desfazer". The item just finished stays
+  in place; items done earlier sink to the end of their group. The composer's own states (no day,
+  assigning, failed) are in "Admin · Tarefas · Estados do compositor".
 - **The pressed stamp** "Feita" for a goal met, the **ficha** for Radmila's note over a sheet, the
   **segmented well** for filters with counts (Admin · Pessoas), the **phase list** (Painel).
 

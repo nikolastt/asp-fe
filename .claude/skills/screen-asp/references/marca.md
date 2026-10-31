@@ -84,6 +84,14 @@ The screens share one participant and one week; reuse them so screens agree:
   tal desligar a tela às 22h30 só essa semana?"
 - Conquistas: Primeiros 10 km sem parar (domingo, 26 de outubro); 21 dias de diário alimentar.
 
+The admin screens share Radmila Bartuzi (RB, Administradora) and the people of Admin · Pessoas (Camila
+Souza, Marcos Ribeiro, Juliana Alves, Artur Augusto, Gisele de Paula, Luciana Mendes, Pedro Lima,
+Renata Costa, Bruno Tavares, Fernanda Rocha), plus Guilherme Nunes (Performance Serena, individual)
+and Lucas Prado from Admin · Tarefas. Her checklist that day: criar tarefa de mobilidade para o
+Guilherme (from yesterday's individual encontro), criar tarefa de sono para o Lucas (done 9:12),
+gravar a aula sobre sono até 17h, responder o diário alimentar da Camila, revisar as rodas da vida da
+turma 04, criar tarefa de hidratação para a Juliana.
+
 A number a screen needs and this list does not give is drawn as sample data of the same participant and
 week, plausible and small, and named as sample in the hand-back. Never a testimonial or a platform-wide
 statistic.
