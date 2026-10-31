@@ -18,21 +18,32 @@
 | Participante · Roda da vida (Hallmark) | `uEbqK`  | x 1640, y 41200             |
 | Admin · Visão geral (Hallmark)         | `s6N7uH` | x 3280, y 41200             |
 | Admin · Pessoas (Hallmark)             | `NQ4xB`  | x 4920, y 41200             |
-| Participante · Tarefas (Hallmark)      | `FyRRo`  | x 6560, y 41200; below it "Detalhe da tarefa" (`bKhQh`) and the states |
 | Menu item "Tarefas" (in the component) | `w6UtSU` | second item, after Início   |
-| Admin · Tarefas (Hallmark)             | `mxHa2`  | x 8200, y 41200; below it "Criando para o Guilherme" (`oginP`, the side panel), "Depois de atribuir" (`hAgk0`), "Detalhe da tarefa" (`h1aWap`) and the states |
 | Admin menu item "Tarefas"              | `gve1y`  | first under Acompanhamento  |
-| Admin · Tarefas · Estados do compositor | `d6bCx5` | x 9840, y 41200            |
-| Mobile: Participante · Tarefas, Detalhe; Admin · Tarefas, Criando, Detalhe | `zksjt`, `k7rJ7`, `k1nQk`, `sQHgw`, `Q6mKe` | x 11480 to 13360, 470 apart, y 41200 |
+| ✦ FEATURE — Tarefas (all task screens) | `QWmIG`  | x 0, y 43200                |
+
+Inside "✦ FEATURE — Tarefas": row "Participante, desktop" (`FyRRo` Tarefas, `bKhQh` Detalhe, then the
+three states), row "Admin, desktop" (`mxHa2` Tarefas, `oginP` Criando para o Guilherme, `hAgk0`
+Depois de atribuir, `h1aWap` Detalhe), row "Admin, compositor e estados" (`d6bCx5` and the three
+states), row "Mobile" (`zksjt`, `k7rJ7`, `k1nQk`, `sQHgw`, `Q6mKe`).
 
 Ids drift as people edit; when one is missing, find the node by name with a visitor instead of
-recreating it. New platform screens go on the Hallmark row (y 41200), 1640 apart, to the right of the
-last one; their state frames go under the screen, 200 below its bottom. Name them
-`✦ PLATAFORMA (Hallmark) — <Área> · <Tela>` and `… · Estado <vazio|carregando|erro>`.
+recreating it.
+
+**Each feature lives in its own container**, never loose on the canvas: a frame `✦ FEATURE — <nome>`
+(`$areia-clara`, radius 48, vertical, padding [160,160,200,160], gap 160) placed in empty space below
+the rest (`FindEmptySpace`, or under the lowest node), with a head (the name 120/600 and one line of
+what it covers) and one row per audience and breakpoint ("Participante, desktop", "Admin, desktop",
+"Mobile"…). A row is a label (64/600 and a mono count) over the screens side by side (gap 120, 96 on
+mobile); each screen sits in a cell with its caption (32/500 `$tinta-suave`) above it, because only
+top-level frames show their name on the canvas. Screens inside take their place from the layout, so
+their x/y are ignored. Name each screen `✦ PLATAFORMA (Hallmark) — <Área> · <Tela>` and its states
+`… · Estado <vazio|carregando|erro>`. The four original Hallmark screens stay on their row at y 41200.
 
 ## Recipe for a new screen
 
-1. **Copy the closest Hallmark screen** to the new position with `placeholder: true` (participant:
+1. **Copy the closest Hallmark screen** into its cell in the feature container with `placeholder:
+   true` (participant:
    `kvAJP`; admin: `NQ4xB`), and turn it off once the header stands, so the region screenshots
    render. The copy keeps the menu instance and its font overrides.
 2. **Set the active menu item** on the copy's menu instance with `descendants`: the active item gets
@@ -53,7 +64,7 @@ last one; their state frames go under the screen, 200 below its bottom. Name the
 
 ## A new menu destination
 
-Add it to the component, not to one screen: `Insert` a `ref` to `gw7a3` into the component's items
+Add it to the component, not to one screen (and keep the component outside any feature container): `Insert` a `ref` to `gw7a3` into the component's items
 frame (participant `F3E5rT` → Navegação → Itens; admin `j3d9NF`, where each section frame holds its
 "Seção" label first and then the items), `Move` it to its place (after the label in the admin menu),
 set `descendants` for the icon (lucide name) and label, and screenshot the menu to see where it
