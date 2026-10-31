@@ -1,0 +1,17 @@
+# Pre-commit gate from docs/adr/0004. Session branches are pushed with
+# --no-verify, so nothing runs on pre-push.
+pre-commit:
+  parallel: true
+  jobs:
+    - name: format
+      glob: '*.{ts,tsx,cjs,json,css,md}'
+      run: npx prettier --write {staged_files}
+      stage_fixed: true
+
+    - name: lint
+      glob: '*.{ts,tsx,cjs}'
+      run: npx oxlint {staged_files}
+
+    - name: typecheck
+      glob: '*.{ts,tsx}'
+      run: npx tsc -b
