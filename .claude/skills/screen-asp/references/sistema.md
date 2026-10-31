@@ -25,6 +25,7 @@ The `.pen` variables and their `src/index.css` names. Use the variable on the ca
 | Primary action, sidebar              | `$musgo-escuro`                     | `--musgo-escuro` (`primary`)   | #23271a                  |
 | The settled state, attention, focus  | `$terracota`                        | `--terracota`                  | #a34603                  |
 | Warm accent on dark, chart 3         | `$areia`, `$areia-clara`            | `--areia`, `--areia-clara`     | #dac9a5, #efe7d6         |
+| Scrim behind a side panel            | `$hm-veu`                           | `--veu` (new, add to index.css) | #1212104d                |
 | Light edge, shade edge, cast         | `$hm-luz`, `$hm-sombra-borda`, `$hm-sombra-cast` | `--luz`, `--sombra-*` | #ffffffe6, #3a2e1f2b, #3a2e1f24 |
 | Face, figures, script                | `$hm-font`, `$hm-mono`, `$font-script` | `font-sans`, `font-mono`, `font-script` | Instrument Sans, Geist Mono, Herr Von Muellerhoff |
 
@@ -105,7 +106,8 @@ Icons are lucide, 16 to 18, in the ink of their label.
 - Header: left, a meta line (14 `$tinta-suave`) over the screen title; right, actions (icon button, then
   the one primary). `justifyContent: space_between`, `alignItems: end`.
 - Body: a main column (`fill_container`) and, when the screen has a secondary region, a side column of
-  340, gap 48. Lists are rows with a top hairline, padding [18,0], gap 16.
+  340, gap 48; a screen with two kinds of content stacks them as sections instead (task screens).
+  Lists are rows with a top hairline, padding [18,0], gap 16.
 - The participant menu has more than seven destinations, which is what earns the sidebar; admin has its
   own menu component.
 
@@ -117,17 +119,41 @@ Reuse these before inventing; copy them from their frame.
   done (the checkbox, terracota), open (empty box, `$hm-linha-forte`), today to mark (empty box,
   `$tinta` 1.5), not yet (box in `$hm-linha` 1), outside the task (an 8px dash). Today's cells sit on
   `$hm-papel-2` and its head carries a 2px `$musgo` bar. A legend under the grid names the states.
-- **Inline disclosure**: a row opens in place (chevron at the row's end, `$tinta-suave`), showing
-  Radmila's note and the row's actions; a modal is the last answer.
-- **Admin checklist** (Admin · Tarefas): her own items are plain reminders ("Lembrete seu") or
-  "Criar tarefa" items tied to one person (an outline tag plus the name). Opening a "Criar tarefa"
-  item shows the composer inline: Para (the person, fixed by the item), Tarefa, Área, Começa, Dias,
-  an optional recado, and a preview of the row as it lands in the person's week (the participant
-  grid's heads, cells and progress, in a well). The one primary is "Atribuir ao <nome>", and the
-  footer says that assigning marks her item done. Done, the item keeps a trace line under it ("Criada
-  às 9:12 para…") with "Ver na rotina de…" and, right after, "Desfazer". The item just finished stays
-  in place; items done earlier sink to the end of their group. The composer's own states (no day,
-  assigning, failed) are in "Admin · Tarefas · Estados do compositor".
+- **Detail in the side panel**: clicking any task (a grid row or a card; rows end in a `chevron-right`)
+  opens the same 480 panel as the composer, over the `$hm-veu` scrim, with the clicked row on
+  `$hm-papel-2` underneath. Top to bottom: kind tag and area, the title 24/600, the facts (where it was
+  agreed, how often) with 15px icons, then sections over hairlines. Participant: "Esta semana" (the
+  week with 26px boxes and dates, today on `$hm-papel-2`, progress) and the one primary "Marcar
+  <dia> como feita"; "Recado da Radmila" as the ficha with a reply field; "Suas anotações" (mono date,
+  note) and "Anotar como foi". Admin: the person above the title, "Semana da <nome>" read-only with a
+  plain-language note, "Seu recado" with a field to send another, "Anotações da <nome>", and a footer
+  with Editar tarefa, Pausar and a quiet Remover (more in the ellipsis). Never expand a row inline.
+- **Task screens** (Participante · Tarefas, Admin · Tarefas) share one shape: sections stacked with
+  gap 40, each with its head outside the body (title 24/600, one line of text, a summary or link on
+  the right). Each person's own job comes first: the participant's routine grid, then her board; the
+  admin's board, then the grid of what she assigned. Recurring tasks live in the **week grid** on a
+  sheet, always with the page head's week stepper and the legend under it; one-off tasks live on a
+  **board**: three lanes, Hoje, Esta semana, Feitas (each a `$hm-papel-2` panel, radius 12, padding
+  [14,12], with its label 14/600, a mono count and a date on the right) holding **task cards**
+  (`$hm-algodao`, radius 8, raised, padding [14,16], gap 10). A card reads top to bottom: the kind
+  tag and the due date (or the stamp), the title 15/600, the person (22px avatar and name) when there
+  is one, an optional note, then a footer over a hairline with its one action. The participant's
+  kinds are "Da Radmila" (ink tag) and "Sua" (muted tag); the admin's are "Criar tarefa" (ink tag,
+  footer "Criar e atribuir") and "Lembrete" (muted tag, footer "Marcar como feita"). The ink tag is
+  filled (`$tinta`, text `$hm-algodao`); the muted one is an outline in `$hm-linha-forte`. A "Criar
+  tarefa" card's title names the subject and the person, never the verb again: "Mobilidade para o
+  Guilherme".
+- **Admin, Atribuídas por você**: the same week grid, one row per person and task (avatar, name, task)
+  so she reads a runner's week exactly as the runner does. A task that starts later shows dashes and
+  "Começa seg, 3 nov".
+- **Composer as a side panel**: "Criar e atribuir" opens a 480 panel on the right over a `$hm-veu`
+  scrim (shadcn `Sheet`), never inline. It holds Para (fixed by the card), Tarefa, Área and Começa,
+  Dias (day toggles), an optional recado, and a preview of the row in the person's week (grid heads,
+  cells, progress, in a well). The footer pins to the bottom: "Ao atribuir, o seu item vai para
+  Feitas.", Cancelar, and the one primary "Atribuir ao <nome>". After assigning, the card moves to the
+  top of Feitas with its stamp and a trace ("Criada agora: …") with "Ver na rotina de…" and
+  "Desfazer", and the person's row appears in the grid. The panel's own states (no day, assigning,
+  failed) are in "Admin · Tarefas · Estados do compositor".
 - **The pressed stamp** "Feita" for a goal met, the **ficha** for Radmila's note over a sheet, the
   **segmented well** for filters with counts (Admin · Pessoas), the **phase list** (Painel).
 

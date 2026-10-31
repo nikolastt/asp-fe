@@ -18,9 +18,9 @@
 | Participante · Roda da vida (Hallmark) | `uEbqK`  | x 1640, y 41200             |
 | Admin · Visão geral (Hallmark)         | `s6N7uH` | x 3280, y 41200             |
 | Admin · Pessoas (Hallmark)             | `NQ4xB`  | x 4920, y 41200             |
-| Participante · Tarefas (Hallmark)      | `FyRRo`  | x 6560, y 41200; states below |
+| Participante · Tarefas (Hallmark)      | `FyRRo`  | x 6560, y 41200; below it "Detalhe da tarefa" (`bKhQh`) and the states |
 | Menu item "Tarefas" (in the component) | `w6UtSU` | second item, after Início   |
-| Admin · Tarefas (Hallmark)             | `mxHa2`  | x 8200, y 41200; "Depois de atribuir" and states below |
+| Admin · Tarefas (Hallmark)             | `mxHa2`  | x 8200, y 41200; below it "Criando para o Guilherme" (`oginP`, the side panel), "Depois de atribuir" (`hAgk0`), "Detalhe da tarefa" (`h1aWap`) and the states |
 | Admin menu item "Tarefas"              | `gve1y`  | first under Acompanhamento  |
 | Admin · Tarefas · Estados do compositor | `d6bCx5` | x 9840, y 41200            |
 
@@ -64,6 +64,9 @@ component's own font is the old `$font-display`. Say in the hand-back that every
 
 - A frame with `placeholder: true` screenshots blank. Turn it off once the layout stands, and take the
   screenshot in a separate `execute`: one in the same call as a placeholder change can render stale.
+- A side panel is two `layoutPosition: "absolute"` children of the screen frame: the `$hm-veu`
+  scrim at 1440 wide and the 480 panel at x 960, both as tall as the frame; when the frame's height
+  changes, change theirs.
 - `underline` is in the schema but does not stick on text; draw a link as a frame with a bottom
   stroke (`sistema.md` § Controls).
 - Globals assigned in one `execute` are not reliably there in the next; carry ids as string literals
