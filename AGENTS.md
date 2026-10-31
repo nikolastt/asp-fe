@@ -40,9 +40,9 @@ Never narrate what the code does, and never put usage examples in comments.
 The project skill `.claude/skills/shadcn` and the shadcn MCP server (`.mcp.json`) know the installed
 components and their docs; use them before writing UI markup. Add components with `npx shadcn add`.
 
-### tela-asp
+### screen-asp
 
-`.claude/skills/tela-asp` draws a new platform screen in pen.dev in Radmila's brand and the locked
+`.claude/skills/screen-asp` draws a new platform screen in pen.dev in Radmila's brand and the locked
 PLATAFORMA (Hallmark) system, running Hallmark on it; reach for it before drawing any screen, tab or
 state.
 

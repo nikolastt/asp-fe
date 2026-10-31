@@ -1,9 +1,9 @@
 ---
-name: tela-asp
+name: screen-asp
 description: Draws a screen of the ASP platform (Radmila Bartuzi's participant and admin areas) in pen.dev, in her brand and the locked PLATAFORMA (Hallmark) system, running Hallmark on every screen. Use when asked to draw or design a platform screen, tab, modal or state ("desenha a tela de X", "quero uma aba para Y").
 ---
 
-# Tela ASP
+# Screen ASP
 
 Every screen this skill draws is a **Hallmark app screen** inside a system that is already locked. The
 brand decides the words, the system decides the look, Hallmark guards the floor. Nothing is re-derived.
