@@ -20,7 +20,19 @@ Read both in full, every run:
 Done when you can name the screen's one job, its dominant object and the one primary action, in the
 brand's words.
 
-## 2. Run Hallmark
+## 2. Grill the screen
+
+Invoke the `grilling` skill (args: the screen, as asked) and run its rounds before drawing anything.
+Look the facts up yourself: the API's ADRs, `GLOSSARY.md` and code (`../asp-api`), this repo's
+`docs/adr/`, the frames already drawn. Put only the decisions to the user: who uses the screen and
+where they arrive from, what it shows, its one action, every flow and state it opens, edge cases
+(errors, limits, the empty and first-use cases), copy that `marca.md` does not settle, and any
+non-screen piece the request includes (an e-mail, a notification).
+
+Done when the frontier is empty and the user confirmed the shared understanding. Carry the answers
+into Hallmark's Picks and name them in the hand-back.
+
+## 3. Run Hallmark
 
 Invoke the `hallmark` skill (Skill tool, args `app screen no pen.dev: <the screen>`) and run its flow
 with these bindings, which replace its defaults:
@@ -28,7 +40,7 @@ with these bindings, which replace its defaults:
 | Hallmark step | Binding for this project                                                                                                                                                                                                                                                                                                 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0 Pre-flight  | `sistema.md` is the project's `design.md`: a locked system. No theme deal, no draw; genre modern-minimal, theme Coral, as stamped in the log.                                                                                                                                                                             |
-| 1 Ask once    | `marca.md` answers audience and tone. Ask only what the request leaves open about the screen itself (what data it shows, its one action), in one message; when the request answers it, ask nothing.                                                                                                                      |
+| 1 Ask once    | `marca.md` answers audience and tone, and step 2's grilling answered the screen: ask nothing more.                                                                                                                                                                                                                       |
 | Scope         | App screen (`references/flow.md` § App screens): no hero, no fold, no word budget; density, states and the signature object still bind.                                                                                                                                                                                  |
 | 5 Picks       | App format: Screen, Signature, States, Flows (every frame a control opens), Components (the board's pieces), Material, Sweep.                                                                                                                                                                                            |
 | 6 Build       | On the canvas, per [`references/pen.md`](references/pen.md), never HTML. The Floor holds in canvas terms: every colour and font is a `$` variable of the file; labels sentence case, untracked; no dot-joined meta; no card inside a card; no invented figure (sample data comes from `marca.md` § Dados de exemplo). |
@@ -37,7 +49,7 @@ with these bindings, which replace its defaults:
 Done when the Picks block is out (before building) and, after building, the log entry is written with
 the outcome row filled.
 
-## 3. Draw
+## 4. Draw
 
 Follow `references/pen.md`. A screen ships whole, never as its resting frame alone. Done when the
 feature container holds all of it:
@@ -55,9 +67,9 @@ Then, for every frame and every board group: `placeholder` is off, the layout-pr
 nothing, every node's colour and font is a variable, and a screenshot was looked at and matches the
 system's surfaces and type.
 
-## 4. Hand back
+## 5. Hand back
 
-- The final Picks block with the sweep outcome.
+- The final Picks block with the sweep outcome, and the grilling decisions it rests on.
 - The frame names and ids, and what changed in shared components (a new menu item propagates to every
   screen).
 - The board: each component name with its variants.
