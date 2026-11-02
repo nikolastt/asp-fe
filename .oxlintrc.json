@@ -30,16 +30,7 @@
       "entryPoint": "src/index.css"
     }
   },
-  "ignorePatterns": [
-    "src/routeTree.gen.ts",
-    "dist",
-    ".claude/skills",
-    ".claude/helpers",
-    ".claude/agents",
-    ".claude/commands",
-    ".claude-flow",
-    ".agents"
-  ],
+  "ignorePatterns": ["src/routeTree.gen.ts", "dist", ".claude/skills"],
   "rules": {
     "typescript/no-explicit-any": "error",
     "typescript/no-floating-promises": "error",
