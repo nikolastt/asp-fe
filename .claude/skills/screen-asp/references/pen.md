@@ -23,6 +23,7 @@
 | ✦ FEATURE — Tarefas (all task screens) | `QWmIG`  | x 0, y 43200                |
 | Admin menu item "Permissões"           | `DZYbc`  | last under Gestão           |
 | ✦ FEATURE — Permissões                 | `c95D0`  | x 0, y 51600                |
+| ✦ FEATURE — Acesso (login, código, senha, e-mails) | `fX1tx` | x 0, y 67000      |
 
 Inside "✦ FEATURE — Tarefas": row "Participante, desktop" (`FyRRo` Tarefas, `bKhQh` Detalhe, then the
 three states), row "Admin, desktop" (`mxHa2` Tarefas, `oginP` Criando para o Guilherme, `hAgk0`
@@ -34,6 +35,13 @@ Mudando o cargo, `c0bHrK` Depois de salvar, `Le6j2` Acesso do Pedro, `PhieW` Sel
 `jB4Vw` Roda da vida), row "Admin, estados", row "Plataforma, desktop" (`P0obI` Espaços and its
 states; the platform panel has a top bar, no menu component), row "Mobile", and the board "Componentes
 e variantes" (`HzlWw`), the reference for every board below.
+
+Inside "✦ FEATURE — Acesso": row "Entrar, desktop" (`L7cQNW` Entrar, then Entrando, Não confere,
+Acesso pausado, `BBcWn` Digite o código and its states), row "Esqueci minha senha, desktop" (`qzEEj`
+through `c8lOwp` Link vencido), row "E-mails" (`SfMp2` código, `BDKvR` redefinição: 680 wide, flat, no
+shadows), row "Mobile", and the board (`O7ksNc`). The access screens have no menu: the left half is the
+component `Acesso / Painel da marca / Desktop` (`Zjd6b`), the per-tenant slot, and the form sits on one
+440 sheet.
 
 Ids drift as people edit; when one is missing, find the node by name with a visitor instead of
 recreating it.
