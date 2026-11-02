@@ -27,3 +27,20 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Ruflo local secrets and runtime data
+.env.local
+.env.*.local
+.claude-flow/data/
+.claude-flow/logs/
+.claude-flow/sessions/
+
+# Ruflo runtime state (per machine: memory DBs, metrics, daemon, absolute paths)
+.swarm/
+.claude-flow/*
+!.claude-flow/.gitignore
+!.claude-flow/config.yaml
+!.claude-flow/CAPABILITIES.md
+.claude/proven-config.json
+.claude/.proven-config-version
+.claude/settings.json.bak-*
